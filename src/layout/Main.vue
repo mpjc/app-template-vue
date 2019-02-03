@@ -1,5 +1,5 @@
 <template>
-  <main class="main">
+  <main class="Main">
     <router-view/>
   </main>
 </template>
@@ -12,7 +12,7 @@ export default class Main extends Vue { }
 </script>
 
 <style scoped lang="scss">
-.main {
+.Main {
   margin: 0 auto;
   padding: 10px;
   max-width: 1024px;

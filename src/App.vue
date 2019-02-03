@@ -29,17 +29,19 @@ export default class App extends Vue {
 <style lang="scss">
 :root {
   --color-1: #d6d6d6;
+  --color-2: #c0c0c0;
   --bg-color-1: #222222;
   --bg-color-2: #161616;
-  --link-color-1: #4060c0;
 }
 .light {
   --color-1: #222222;
+  --color-2: #161616;
   --bg-color-1: #d6d6d6;
   --bg-color-2: #c0c0c0;
 }
 .dark {
   --color-1: #d6d6d6;
+  --color-2: #c0c0c0;
   --bg-color-1: #222222;
   --bg-color-2: #161616;
 }

@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="Header">
     <div id="nav">
       <router-link to="/">
         <i class="fas fa-home"></i>
@@ -28,7 +28,8 @@ export default class Header extends Vue { }
 </script>
 
 <style scoped lang="scss">
-.header {
+@import "../colors.scss";
+.Header {
   background-color: var(--bg-color-2);
   #nav {
     padding: 15px;
@@ -38,7 +39,7 @@ export default class Header extends Vue { }
       font-weight: bold;
       color: var(--color-1);
       &.router-link-exact-active {
-        color: var(--link-color-1);
+        color: $color-blue;
       }
     }
   }

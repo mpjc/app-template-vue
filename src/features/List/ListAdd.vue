@@ -1,7 +1,12 @@
 <template>
-  <div class="list-add">
-    <input placeholder="new item" v-model="inputValue" @keypress.enter="addListItem">
-    <button @click="addListItem">
+  <div class="ListAdd">
+    <input
+      class="ListAdd-text"
+      placeholder="..."
+      v-model="inputValue"
+      @keypress.enter="addListItem"
+    >
+    <button class="ListAdd-add" @click="addListItem">
       <i class="fas fa-plus"></i>
     </button>
   </div>
@@ -15,8 +20,9 @@ import { mapActions } from 'vuex';
   methods: mapActions('list', ['add']),
 })
 export default class ListAdd extends Vue {
-  // State actions
+  // State
   add!: (value: string) => void;
+
   inputValue: string = '';
 
   addListItem() {
@@ -29,18 +35,21 @@ export default class ListAdd extends Vue {
 </script>
 
 <style scoped lang="scss">
-.list-add {
+@import "../../colors.scss";
+.ListAdd {
   padding: 8px;
-  input {
-    width: 70%;
+  &-text {
+    width: 75%;
     font-size: 1.2em;
     border-radius: 4px;
     padding-left: 2px;
   }
-  button {
+  &-add {
+    border-color: $color-green;
+    background-color: $color-green;
     font-size: 1.2em;
     margin: 0 8px;
-    width: 60px;
+    width: 40px;
     height: 36px;
     border-radius: 6px;
   }

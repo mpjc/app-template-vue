@@ -1,20 +1,15 @@
 <template>
-  <div class="list">
+  <div class="List">
     <h3>List</h3>
-    <List-add/>
+    <ListAdd/>
 
     <div v-if="items.length">
-      <!-- <div class="header-text">Active</div> -->
-      <ListItems :items="uncheckedItems" @toggle="toggleListItem" @remove="removeListItem">
+      <ListItems :items="uncheckedItems">
         <div>All done!</div>
       </ListItems>
-      <hr class="separator">
-      <!-- <div class="header-text">Completed</div> -->
-      <ListItems :items="checkedItems" @toggle="toggleListItem" @remove="removeListItem">
-        <div>None completed...</div>
-      </ListItems>
-
-      <button class="clear-all" @click="clear">Clear All</button>
+      <hr v-if="checkedItems.length" class="List-separator">
+      <ListItems :items="checkedItems"/>
+      <button class="List-clear" @click="clear">Clear</button>
     </div>
     <div v-else>Add an item...</div>
   </div>
@@ -31,55 +26,28 @@ import ListItems from './ListItems.vue';
 @Component({
   components: { ListAdd, ListItems },
   computed: mapGetters('list', ['items', 'checkedItems', 'uncheckedItems']),
-  methods: mapActions('list', ['add', 'remove', 'toggle', 'clear']),
+  methods: mapActions('list', ['clear']),
 })
 export default class List extends Vue {
-  // State getters
+  // State
   items!: ListItem[];
   checkedItems!: ListItem[];
   uncheckedItems!: ListItem[];
-
-  // State actions
-  add!: (value: string) => void;
-  remove!: (id: number) => void;
-  toggle!: (id: number) => void;
   clear!: () => void;
-
-  inputValue: string = '';
-
-  addListItem() {
-    if (this.inputValue) {
-      this.add(this.inputValue);
-      this.inputValue = '';
-    }
-  }
-
-  toggleListItem(item: ListItem) {
-    this.toggle(item.id);
-  }
-
-  removeListItem(item: ListItem) {
-    this.remove(item.id);
-  }
 }
 </script>
 
 <style scoped lang="scss">
-.list {
-}
-.header-text {
-  font-size: 1.2em;
-  font-weight: bold;
-  padding: 8px 0;
-}
-.separator {
-  margin: 16px 0;
-}
-.clear-all {
-  font-size: 1.2em;
-  margin: 16px;
-  width: 160px;
-  height: 36px;
-  border-radius: 6px;
+.List {
+  &-separator {
+    margin: 16px 0;
+  }
+  &-clear {
+    font-size: 1.2em;
+    margin: 16px;
+    width: 120px;
+    height: 36px;
+    border-radius: 6px;
+  }
 }
 </style>
