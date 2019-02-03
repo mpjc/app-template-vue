@@ -2,11 +2,11 @@
   <div class="ListItemRow">
     <span class="ListItemRow-text">{{item.value}}</span>
     <div class="ListItemRow-controls">
-      <button class="ListItemRow-toggle" @click="toggle(item)">
+      <button class="ListItemRow-toggle" @click="toggle">
         <i v-if="item.checked" class="far fa-check-circle"></i>
         <i v-else class="far fa-circle"></i>
       </button>
-      <button class="ListItemRow-remove" @click="remove(item)">
+      <button class="ListItemRow-remove" @click="remove">
         <i class="fas fa-times"></i>
       </button>
     </div>

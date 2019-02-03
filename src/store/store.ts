@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import AppState from './app-state';
 import { counter } from './counter';
+import { game } from './game';
 import { list } from './list';
 import { settings } from './settings';
 
@@ -13,6 +14,7 @@ export default new Vuex.Store<AppState>({
   },
   modules: {
     counter,
+    game,
     list,
     settings,
   },

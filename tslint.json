@@ -18,6 +18,7 @@
       "spaces",
       2
     ],
+    "array-type": false,
     "interface-name": false,
     "member-access": false,
     "ordered-imports": false,
