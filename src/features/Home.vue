@@ -1,8 +1,8 @@
 <template>
   <div class="Home">
     <h3>Home</h3>
-    <p>This is a sample SPA application, implemented using Vue.js</p>
-    <p>The application includes basic data and event binding, in addition to routing and state management.</p>
+    <p>Sample Vue.js SPA (Single Page Application), implemented in TypeScript.</p>
+    <p>Includes basic functionality such as data and event binding, in addition to routing and state management.</p>
     <p>
       The icons used throughout are from
       <a href="https://fontawesome.com">Font Awesome</a>.

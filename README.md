@@ -1,6 +1,6 @@
 # app-template-vue
-
-A simple application template for Vue.js including routing, vuex and PWA functionality.
+Sample Vue.js SPA (Single Page Application), implemented in TypeScript.
+Includes basic functionality such as data and event binding, in addition to routing and state management.
 
 ## Project setup
 ```
