@@ -7,8 +7,8 @@
         <div class="Settings-item">
           <div>Theme: {{theme}}</div>
           <div @click="toggle">
-            <i v-if="theme === 'dark'" class="fas fa-toggle-on"></i>
-            <i v-else class="fas fa-toggle-off"></i>
+            <i v-if="theme === 'dark'" class="fas fa-toggle-on fa-lg"></i>
+            <i v-else class="fas fa-toggle-off fa-lg"></i>
           </div>
         </div>
       </div>
@@ -35,11 +35,14 @@ export default class Counter extends Vue {
 <style scoped lang="scss">
 .Settings {
   margin: 0 auto;
-  width: 80%;
+  width: 90%;
   &-list {
   }
   &-group {
+    color: var(--color-1);
+    background-color: var(--bg-color-2);
     border: 1px solid var(--color-1);
+    border-radius: 6px;
     padding: 2px;
     &_header {
       font-size: 1.2em;

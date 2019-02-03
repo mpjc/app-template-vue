@@ -11,7 +11,7 @@
       <ListItems :items="checkedItems"/>
       <button class="List-clear" @click="clear">Clear</button>
     </div>
-    <div v-else>Add an item...</div>
+    <div v-else class="List-empty">Add an item...</div>
   </div>
 </template>
 
@@ -48,6 +48,9 @@ export default class List extends Vue {
     width: 120px;
     height: 36px;
     border-radius: 6px;
+  }
+  &-empty {
+    padding-top: 8px;
   }
 }
 </style>
