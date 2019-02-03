@@ -9,13 +9,11 @@ export interface CounterState {
   value: number;
 }
 
-export const initialState: CounterState = {
-  value: 0,
-};
-
 export const counter: Module<CounterState, AppState> = {
   namespaced: true,
-  state: initialState,
+  state: {
+    value: 0,
+  },
   getters,
   actions,
   mutations,

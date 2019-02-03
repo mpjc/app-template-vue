@@ -1,9 +1,21 @@
 <template>
   <header class="header">
     <div id="nav">
-      <router-link to="/">Home</router-link>&nbsp;|
-      <router-link to="/counter">Counter</router-link>&nbsp;|
-      <router-link to="/list">List</router-link>
+      <router-link to="/">
+        <i class="fas fa-home"></i>
+      </router-link>&nbsp;|
+      <router-link to="/counter">
+        <i class="fas fa-calculator"></i>
+      </router-link>&nbsp;|
+      <router-link to="/list">
+        <i class="fas fa-tasks"></i>
+      </router-link>&nbsp;|
+      <router-link to="/game">
+        <i class="fas fa-gamepad"></i>
+      </router-link>&nbsp;|
+      <router-link to="/settings">
+        <i class="fas fa-cog"></i>
+      </router-link>
     </div>
   </header>
 </template>
@@ -17,16 +29,16 @@ export default class Header extends Vue { }
 
 <style scoped lang="scss">
 .header {
-  background-color: #161616;
+  background-color: var(--bg-color-2);
   #nav {
-    padding: 30px;
+    padding: 15px;
     a {
-      font-size: 1.25em;
-      padding: 0 2px;
+      font-size: 1.5em;
+      padding: 0 6px;
       font-weight: bold;
-      color: #cecece;
+      color: var(--color-1);
       &.router-link-exact-active {
-        color: #4060c0;
+        color: var(--link-color-1);
       }
     }
   }

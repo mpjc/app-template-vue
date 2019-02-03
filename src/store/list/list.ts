@@ -16,14 +16,12 @@ export interface ListState {
   items: ListItem[];
 }
 
-export const initialState: ListState = {
-  index: 0,
-  items: [],
-};
-
 export const list: Module<ListState, RootState> = {
   namespaced: true,
-  state: initialState,
+  state: {
+    index: 0,
+    items: [],
+  },
   getters,
   actions,
   mutations,

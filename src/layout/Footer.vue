@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    <h4>&copy; mpjc 2019</h4>
+    <div>&copy; mpjc 2019</div>
   </footer>
 </template>
 
@@ -13,7 +13,7 @@ export default class Footer extends Vue { }
 
 <style scoped lang="scss">
 .footer {
-  padding: 10px;
-  background-color: #161616;
+  padding: 20px;
+  background-color: var(--bg-color-2);
 }
 </style>

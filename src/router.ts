@@ -20,6 +20,14 @@ export default new Router({
       path: '/list',
       name: 'list',
       component: () => import('./features/List/List.vue'),
+    }, {
+      path: '/game',
+      name: 'Game',
+      component: () => import('./features/Game/Game.vue'),
+    }, {
+      path: '/settings',
+      name: 'settings',
+      component: () => import('./features/Settings/Settings.vue'),
     },
   ],
 });

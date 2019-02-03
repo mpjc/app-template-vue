@@ -43,8 +43,8 @@ export default class ListItems extends Vue {
 }
 .list-item {
   border-radius: 4px;
-  color: #222222;
-  background-color: #cecece;
+  color: var(--bg-color-1);
+  background-color: var(--color-1);
   padding: 2px;
   margin: 2px;
   display: flex;
