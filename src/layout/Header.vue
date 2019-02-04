@@ -4,9 +4,6 @@
       <router-link to="/">
         <i class="fas fa-home"></i>
       </router-link>&nbsp;|
-      <router-link to="/counter">
-        <i class="fas fa-calculator"></i>
-      </router-link>&nbsp;|
       <router-link to="/list">
         <i class="fas fa-tasks"></i>
       </router-link>&nbsp;|

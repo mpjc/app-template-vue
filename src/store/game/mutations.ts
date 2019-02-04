@@ -1,20 +1,27 @@
 import { MutationTree } from 'vuex';
 
-import { GameState } from './game';
+import { GameState, GamePhase } from './game';
 import { createBoard, tryMove, isCorrectOrder } from './utils';
 
 export const mutations: MutationTree<GameState> = {
   moveTile(state, { x, y }: { x: number, y: number }) {
-    state.board = tryMove(state.board, x, y);
-    state.isWon = isCorrectOrder(state.board);
+    if (state.phase === GamePhase.Playing) {
+      state.board = tryMove(state.board, x, y);
+      state.phase = isCorrectOrder(state.board) ? GamePhase.Won : state.phase;
+    }
   },
-  resize(state, size: number) {
+  quit(state) {
+    state.boardSize = 0;
+    state.board = createBoard(0);
+    state.phase = GamePhase.Setup;
+  },
+  setup(state, size: number) {
     state.boardSize = size;
     state.board = createBoard(size);
-    state.isWon = isCorrectOrder(state.board);
+    state.phase = GamePhase.Playing;
   },
   reset(state) {
     state.board = createBoard(state.boardSize);
-    state.isWon = isCorrectOrder(state.board);
+    state.phase = GamePhase.Playing;
   },
 };

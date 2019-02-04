@@ -13,10 +13,6 @@ export default new Router({
       name: 'home',
       component: Home,
     }, {
-      path: '/counter',
-      name: 'counter',
-      component: () => import('./features/Counter.vue'),
-    }, {
       path: '/list',
       name: 'list',
       component: () => import('./features/List/List.vue'),

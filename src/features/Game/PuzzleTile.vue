@@ -1,14 +1,14 @@
 <template>
-  <div v-if="!tile.isEmpty" class="Game-tile" :style="style"></div>
+  <div v-if="!tile.isEmpty" class="PuzzleTile" :style="style"></div>
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop, Emit } from 'vue-property-decorator';
+import { Component, Vue, Prop } from 'vue-property-decorator';
 
 import { GameTile } from '@/store/game';
 
 @Component
-export default class GameImageTile extends Vue {
+export default class PuzzleTile extends Vue {
   @Prop() tile!: GameTile;
   @Prop() boardSize!: number;
 
@@ -27,7 +27,7 @@ export default class GameImageTile extends Vue {
 </script>
 
 <style scoped lang="scss">
-.Game-tile {
+.PuzzleTile {
   height: 100%;
   border: 1px solid var(--color-1);
   border-radius: 6px;

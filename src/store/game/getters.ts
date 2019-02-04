@@ -1,7 +1,7 @@
 import { GetterTree } from 'vuex';
 
 import AppState from '../app-state';
-import { GameState, GameTile } from './game';
+import { GameState, GameTile, GamePhase } from './game';
 
 export const getters: GetterTree<GameState, AppState> = {
   board(state): GameTile[][] {
@@ -10,7 +10,7 @@ export const getters: GetterTree<GameState, AppState> = {
   boardSize(state): number {
     return state.boardSize;
   },
-  isWon(state): boolean {
-    return state.isWon;
+  phase(state): GamePhase {
+    return state.phase;
   },
 };

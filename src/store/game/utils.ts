@@ -2,6 +2,10 @@ import { GameTile } from '@/store/game';
 import { randomInt } from '@/lib/utils';
 
 export function createBoard(size: number): GameTile[][] {
+  if (size === 0) {
+    return [];
+  }
+
   const board: GameTile[][] = [];
   for (let y = 0; y < size; y++) {
     const row: any[] = [];
@@ -118,8 +122,9 @@ function shuffleBoard(board: GameTile[][]): GameTile[][] {
     return board;
   }
 
+  const iterations = getShuffleIterations(size);
   let shuffled = board;
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < iterations; i++) {
     const validMoves = getAdjacent(holeX, holeY)
       .filter((m) => isValidMove(shuffled, m.x, m.y, holeX, holeY));
     const move = validMoves[randomInt(validMoves.length)];
@@ -129,4 +134,10 @@ function shuffleBoard(board: GameTile[][]): GameTile[][] {
     holeY = move.y;
   }
   return shuffled;
+}
+
+function getShuffleIterations(boardSize: number): number {
+  const iterationsBase = 100;
+  const iterationsMultipler = Math.pow(2, boardSize);
+  return iterationsBase * iterationsMultipler;
 }

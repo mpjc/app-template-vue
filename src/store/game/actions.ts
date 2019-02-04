@@ -7,10 +7,13 @@ export const actions: ActionTree<GameState, AppState> = {
   moveTile({ commit }, payload) {
     commit('moveTile', payload);
   },
-  resize({ commit }, size: number) {
-    commit('resize', size);
+  quit({ commit }) {
+    commit('quit');
   },
   reset({ commit }) {
     commit('reset');
+  },
+  setup({ commit }, size: number) {
+    commit('setup', size);
   },
 };

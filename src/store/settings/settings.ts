@@ -17,12 +17,12 @@ export const settings: Module<SettingsState, AppState> = {
     },
   },
   actions: {
-    toggle({ commit }, value: string) {
-      commit('toggle', value);
+    toggleTheme({ commit }, value: string) {
+      commit('toggleTheme', value);
     },
   },
   mutations: {
-    toggle(state) {
+    toggleTheme(state) {
       state.theme = state.theme === 'dark' ? 'light' : 'dark';
     },
   },

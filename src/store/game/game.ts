@@ -6,6 +6,12 @@ import { actions } from './actions';
 import { mutations } from './mutations';
 import { createBoard } from './utils';
 
+export const enum GamePhase {
+  Setup = 'Setup',
+  Playing = 'Playing',
+  Won = 'Won',
+}
+
 export interface GameTile {
   x: number;
   y: number;
@@ -13,17 +19,17 @@ export interface GameTile {
 }
 
 export interface GameState {
-  boardSize: number;
   board: GameTile[][];
-  isWon: boolean;
+  boardSize: number;
+  phase: GamePhase;
 }
 
 export const game: Module<GameState, RootState> = {
   namespaced: true,
   state: {
-    boardSize: 3,
-    board: createBoard(3),
-    isWon: false,
+    boardSize: 0,
+    board: createBoard(0),
+    phase: GamePhase.Setup,
   },
   getters,
   actions,
