@@ -1,17 +1,17 @@
 <template>
   <div class="PuzzleSetup">
     <div>Choose your difficulty</div>
-    <div>
-      <button class="PuzzleSetup-start" @click="setup(2)">Super easy</button>
+    <div class="PuzzleSetup-row">
+      <div class="PuzzleSetup-start ui-button" @click="setup(2)">Super easy</div>
     </div>
-    <div>
-      <button class="PuzzleSetup-start" @click="setup(3)">Normal</button>
+    <div class="PuzzleSetup-row">
+      <div class="PuzzleSetup-start ui-button" @click="setup(3)">Normal</div>
     </div>
-    <div>
-      <button class="PuzzleSetup-start" @click="setup(4)">Hard</button>
+    <div class="PuzzleSetup-row">
+      <div class="PuzzleSetup-start ui-button" @click="setup(4)">Hard</div>
     </div>
-    <div>
-      <button class="PuzzleSetup-start" @click="setup(6)">I have time to waste...</button>
+    <div class="PuzzleSetup-row">
+      <div class="PuzzleSetup-start ui-button" @click="setup(6)">I have time to waste...</div>
     </div>
   </div>
 </template>
@@ -30,11 +30,15 @@ export default class PuzzleSetup extends Vue {
 
 <style scoped lang="scss">
 .PuzzleSetup {
+  &-row {
+    display: flex;
+    justify-content: center;
+  }
   &-start {
-    width: 300px;
+    min-width: 300px;
     height: 40px;
+    line-height: 40px;
     margin: 10px;
-    border-radius: 6px;
     font-size: 1.2em;
   }
 }

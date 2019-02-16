@@ -16,4 +16,7 @@ export const actions: ActionTree<GameState, AppState> = {
   setup({ commit }, size: number) {
     commit('setup', size);
   },
+  shuffle({ commit }) {
+    commit('shuffle');
+  },
 };

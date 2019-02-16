@@ -1,0 +1,44 @@
+:root {
+  --color-1: #d6d6d6;
+  --color-2: #c0c0c0;
+  --bg-color-1: #222222;
+  --bg-color-2: #161616;
+}
+.light {
+  --color-1: #222222;
+  --color-2: #161616;
+  --bg-color-1: #d6d6d6;
+  --bg-color-2: #c0c0c0;
+}
+.dark {
+  --color-1: #d6d6d6;
+  --color-2: #c0c0c0;
+  --bg-color-1: #222222;
+  --bg-color-2: #161616;
+}
+html {
+  height: 100%;
+}
+body {
+  color: #d6d6d6;
+  background-color: #222222;
+  height: 100%;
+}
+
+.ui-button {
+  font-size: 1.2em;
+  min-width: 20%;
+  padding: 0 4px;
+  height: 36px;
+  line-height: 36px;
+  border-radius: 6px;
+  display: inline-block;
+  border: 1px solid var(--color-1);
+  color: var(--color-1);
+  background-color: var(--bg-color-1);
+  &:hover {
+    cursor: pointer;
+    color: var(--bg-color-1);
+    background-color: var(--color-1);
+  }
+}

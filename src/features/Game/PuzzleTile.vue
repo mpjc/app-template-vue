@@ -29,6 +29,7 @@ export default class PuzzleTile extends Vue {
 <style scoped lang="scss">
 .PuzzleTile {
   height: 100%;
+  box-sizing: border-box;
   border: 1px solid var(--color-1);
   border-radius: 6px;
   background: url("../../assets/logo.png") no-repeat;

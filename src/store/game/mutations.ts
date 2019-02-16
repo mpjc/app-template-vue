@@ -24,4 +24,7 @@ export const mutations: MutationTree<GameState> = {
     state.board = createBoard(state.boardSize);
     state.phase = GamePhase.Playing;
   },
+  shuffle(state) {
+    state.board = createBoard(state.boardSize);
+  },
 };

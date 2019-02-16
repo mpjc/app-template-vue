@@ -38,7 +38,9 @@ export default class Game extends Vue {
   flex-direction: column;
   height: 80vmin;
   width: 80vmin;
-  margin: 0 auto 40px auto;
+  max-height: 460px;
+  max-width: 460px;
+  margin: 0 auto 20px auto;
   border-radius: 6px;
   background-color: var(--color-1);
   &-row {

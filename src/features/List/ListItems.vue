@@ -1,15 +1,29 @@
 <template>
   <div class="ListItems">
     <div v-if="items.length">
-      <ListItemRow
+      <ListItemView
         v-for="item in items"
         :item="item"
         :key="item.id"
         @toggle="toggleListItem"
+        @edit="setEditItem"
         @remove="removeListItem"
       />
     </div>
     <slot v-else></slot>
+
+    <Modal v-if="editItem" @close="clearEditItem">
+      <div slot="header">
+        <div>Edit item</div>
+        <hr>
+      </div>
+      <ListItemEdit
+        slot="content"
+        :item="editItem"
+        @update="updateListItem"
+        @cancel="clearEditItem"
+      />
+    </Modal>
   </div>
 </template>
 
@@ -17,19 +31,37 @@
 import { Component, Vue, Prop, Emit } from 'vue-property-decorator';
 import { mapGetters, mapActions } from 'vuex';
 
-import ListItemRow from './ListItemRow.vue';
+import ListItemEdit from './ListItemEdit.vue';
+import ListItemView from './ListItemView.vue';
 import { ListItem } from '@/store/list';
+import { Modal } from '@/shared';
 
 @Component({
-  components: { ListItemRow },
-  methods: mapActions('list', ['remove', 'toggle']),
+  components: { ListItemEdit, ListItemView, Modal },
+  methods: mapActions('list', ['edit', 'remove', 'toggle']),
 })
 export default class ListItems extends Vue {
   // State
+  edit!: (payload: { id: number, value: string }) => void;
   remove!: (id: number) => void;
   toggle!: (id: number) => void;
 
   @Prop() items!: ListItem[];
+
+  editItem: ListItem | null = null;
+
+  setEditItem(item: ListItem) {
+    this.editItem = item;
+  }
+
+  clearEditItem() {
+    this.editItem = null;
+  }
+
+  updateListItem(payload: { id: number, value: string }) {
+    this.edit(payload);
+    this.clearEditItem();
+  }
 
   toggleListItem(item: ListItem) {
     this.toggle(item.id);

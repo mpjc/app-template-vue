@@ -27,39 +27,31 @@ export default class App extends Vue {
 </script>
 
 <style lang="scss">
-:root {
-  --color-1: #d6d6d6;
-  --color-2: #c0c0c0;
-  --bg-color-1: #222222;
-  --bg-color-2: #161616;
-}
-.light {
-  --color-1: #222222;
-  --color-2: #161616;
-  --bg-color-1: #d6d6d6;
-  --bg-color-2: #c0c0c0;
-}
-.dark {
-  --color-1: #d6d6d6;
-  --color-2: #c0c0c0;
-  --bg-color-1: #222222;
-  --bg-color-2: #161616;
-}
-body {
-  color: #d6d6d6;
-  background-color: #222222;
-}
-
+@import "./common.scss";
 #app {
   font-size: 1.25em;
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  min-height: 100vh;
   text-align: center;
+
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 
   color: var(--color-1);
   background-color: var(--bg-color-1);
+
+  .Header {
+    flex-shrink: 0;
+  }
+  .Main {
+    flex: 1 0 auto;
+    padding-bottom: 20px;
+  }
+  .Footer {
+    flex-shrink: 0;
+  }
 }
 </style>

@@ -10,6 +10,10 @@ export const mutations: MutationTree<ListState> = {
       checked: false,
     });
   },
+  edit(state, { id, value }: { id: number, value: string }) {
+    state.items = state.items.map((i) =>
+      i.id === id ? { ...i, value } : i);
+  },
   remove(state, id: number) {
     state.items = state.items.filter((i) => i.id !== id);
   },

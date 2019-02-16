@@ -1,15 +1,15 @@
 <template>
   <div class="List">
     <h3>List</h3>
-    <ListAdd/>
+    <ListAdd @add="addItem"/>
 
     <div v-if="items.length">
       <ListItems :items="uncheckedItems">
-        <div>All done!</div>
+        <div>All items complete!</div>
       </ListItems>
       <hr v-if="checkedItems.length" class="List-separator">
       <ListItems :items="checkedItems"/>
-      <button class="List-clear" @click="clear">Clear</button>
+      <div class="List-clear ui-button" @click="clear">Clear</div>
     </div>
     <div v-else class="List-empty">Add an item...</div>
   </div>
@@ -22,18 +22,36 @@ import { mapGetters, mapActions } from 'vuex';
 import { ListItem } from '@/store/list';
 import ListAdd from './ListAdd.vue';
 import ListItems from './ListItems.vue';
+import { Modal } from '@/shared';
 
 @Component({
-  components: { ListAdd, ListItems },
+  components: { ListAdd, ListItems, Modal },
   computed: mapGetters('list', ['items', 'checkedItems', 'uncheckedItems']),
-  methods: mapActions('list', ['clear']),
+  methods: mapActions('list', ['add', 'clear']),
 })
 export default class List extends Vue {
   // State
   items!: ListItem[];
   checkedItems!: ListItem[];
   uncheckedItems!: ListItem[];
+  add!: (value: string) => void;
   clear!: () => void;
+
+  modalVisible = false;
+
+  addItem(value: string) {
+    if (value) {
+      this.add(value);
+    }
+  }
+
+  showModal() {
+    this.modalVisible = true;
+  }
+
+  hideModal() {
+    this.modalVisible = false;
+  }
 }
 </script>
 
@@ -43,14 +61,13 @@ export default class List extends Vue {
     margin: 16px 0;
   }
   &-clear {
-    font-size: 1.2em;
     margin: 16px;
-    width: 120px;
-    height: 36px;
-    border-radius: 6px;
   }
   &-empty {
     padding-top: 8px;
   }
+}
+.ListItems {
+  margin-top: 12px;
 }
 </style>

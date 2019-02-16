@@ -15,7 +15,7 @@ export default class Main extends Vue { }
 .Main {
   margin: 0 auto;
   padding: 10px;
+  width: 90%;
   max-width: 1024px;
-  min-height: 70vh;
 }
 </style>

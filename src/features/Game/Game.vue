@@ -5,13 +5,18 @@
       <PuzzleSetup/>
     </div>
     <div v-else>
+      <p>Tap a tile to move it.</p>
       <PuzzleBoard/>
-      <div v-if="phase === 'Won'">
-        <div>You win!</div>
-        <button @click="quit">Play again?</button>
-      </div>
-      <div v-else>
-        <button @click="quit">Quit</button>
+      <Modal v-if="phase === 'Won'" :showClose="false">
+        <div slot="header"></div>
+        <div slot="content">
+          <div class="Game-win-text">You win!</div>
+          <div class="Game-play-again ui-button" @click="quit">Play again?</div>
+        </div>
+      </Modal>
+      <div class="Game-controls" v-else>
+        <div class="Game-control ui-button" @click="quit">Quit</div>
+        <div class="Game-control ui-button" @click="shuffle">Shuffle</div>
       </div>
     </div>
   </div>
@@ -24,19 +29,36 @@ import { mapGetters, mapActions } from 'vuex';
 import PuzzleBoard from './PuzzleBoard.vue';
 import PuzzleSetup from './PuzzleSetup.vue';
 import { GameTile, GamePhase } from '@/store/game';
+import { Modal } from '@/shared';
 
 @Component({
-  components: { PuzzleBoard, PuzzleSetup },
+  components: { Modal, PuzzleBoard, PuzzleSetup },
   computed: mapGetters('game', ['phase']),
-  methods: mapActions('game', ['quit']),
+  methods: mapActions('game', ['shuffle', 'quit']),
 })
 export default class Game extends Vue {
   phase!: GamePhase;
   quit!: () => void;
+  shuffle!: () => void;
 }
 </script>
 
 <style scoped lang="scss">
 .Game {
+  &-win-text {
+    font-size: 1.8em;
+  }
+  &-play-again {
+    margin: 20px 0 10px 0;
+    padding: 0 20px;
+  }
+  &-controls {
+    display: flex;
+    justify-content: center;
+  }
+  &-control {
+    margin: 0 10px;
+    min-width: 30%;
+  }
 }
 </style>

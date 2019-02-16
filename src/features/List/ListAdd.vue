@@ -1,35 +1,24 @@
 <template>
   <div class="ListAdd">
-    <input
-      class="ListAdd-text"
-      placeholder="..."
-      v-model="inputValue"
-      @keypress.enter="addListItem"
-    >
-    <button class="ListAdd-add" @click="addListItem">
+    <input class="ListAdd-text" placeholder="..." v-model="inputValue" @keypress.enter="add">
+    <div class="ListAdd-add" @click="add">
       <i class="fas fa-plus"></i>
-    </button>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Emit } from 'vue-property-decorator';
 import { mapActions } from 'vuex';
 
-@Component({
-  methods: mapActions('list', ['add']),
-})
+@Component
 export default class ListAdd extends Vue {
-  // State
-  add!: (value: string) => void;
+  inputValue = '';
 
-  inputValue: string = '';
-
-  addListItem() {
-    if (this.inputValue) {
-      this.add(this.inputValue);
-      this.inputValue = '';
-    }
+  @Emit() add() {
+    const toAdd = this.inputValue;
+    this.inputValue = '';
+    return toAdd;
   }
 }
 </script>
@@ -45,13 +34,19 @@ export default class ListAdd extends Vue {
     padding-left: 2px;
   }
   &-add {
+    display: inline-block;
+    color: var(--color-1);
     border-color: $color-green;
     background-color: $color-green;
     font-size: 1.2em;
     margin: 0 8px;
-    width: 40px;
-    height: 36px;
+    width: 36px;
+    height: 32px;
+    line-height: 32px;
     border-radius: 6px;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 </style>
