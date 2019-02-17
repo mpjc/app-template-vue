@@ -1,18 +1,18 @@
 import { MutationTree } from 'vuex';
 
 import { GameState, GamePhase } from './game';
-import { createBoard, tryMove, isCorrectOrder } from './utils';
+import { createBoard, tryMove, isCorrectOrder } from '@/lib/sliding-puzzle.utils';
 
 export const mutations: MutationTree<GameState> = {
-  moveTile(state, { x, y }: { x: number, y: number }) {
+  moveTile(state, p: { x: number, y: number }) {
     if (state.phase === GamePhase.Playing) {
-      state.board = tryMove(state.board, x, y);
+      state.board = tryMove(state.board, p);
       state.phase = isCorrectOrder(state.board) ? GamePhase.Won : state.phase;
     }
   },
   quit(state) {
     state.boardSize = 0;
-    state.board = createBoard(0);
+    state.board = createBoard(state.boardSize);
     state.phase = GamePhase.Setup;
   },
   setup(state, size: number) {

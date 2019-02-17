@@ -4,7 +4,7 @@ import RootState from '../app-state';
 import { getters } from './getters';
 import { actions } from './actions';
 import { mutations } from './mutations';
-import { createBoard } from './utils';
+import { createBoard, SlidingPuzzleTile } from '@/lib/sliding-puzzle.utils';
 
 export const enum GamePhase {
   Setup = 'Setup',
@@ -12,14 +12,12 @@ export const enum GamePhase {
   Won = 'Won',
 }
 
-export interface GameTile {
-  x: number;
-  y: number;
-  isEmpty: boolean;
+// tslint:disable-next-line:no-empty-interface
+export interface GameTile extends SlidingPuzzleTile {
 }
 
 export interface GameState {
-  board: GameTile[][];
+  board: SlidingPuzzleTile[][];
   boardSize: number;
   phase: GamePhase;
 }
