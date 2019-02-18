@@ -1,6 +1,6 @@
 <template>
   <div class="PuzzleSetup">
-    <div>Choose your difficulty</div>
+    <div class="PuzzleSetup-message">Choose your difficulty</div>
     <div class="PuzzleSetup-row">
       <div class="PuzzleSetup-start ui-button" @click="setup(2)">Super easy</div>
     </div>
@@ -24,12 +24,16 @@ import { mapActions } from 'vuex';
   methods: mapActions('game', ['setup']),
 })
 export default class PuzzleSetup extends Vue {
+  // State
   setup!: (size: number) => void;
 }
 </script>
 
 <style scoped lang="scss">
 .PuzzleSetup {
+  &-message {
+    margin: 20px 0;
+  }
   &-row {
     display: flex;
     justify-content: center;

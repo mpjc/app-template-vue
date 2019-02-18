@@ -1,28 +1,33 @@
+
 :root {
-  --color-1: #d6d6d6;
-  --color-2: #c0c0c0;
-  --bg-color-1: #222222;
-  --bg-color-2: #161616;
+  --accent-color-1: #3d9970;
+  --color-1: #eee;
+  --color-2: #ccc;
+  --bg-color-1: #222;
+  --bg-color-2: #111;
 }
 .light {
-  --color-1: #222222;
-  --color-2: #161616;
-  --bg-color-1: #d6d6d6;
-  --bg-color-2: #c0c0c0;
+  --color-1: #222;
+  --color-2: #111;
+  --bg-color-1: #eee;
+  --bg-color-2: #ccc;
 }
 .dark {
-  --color-1: #d6d6d6;
-  --color-2: #c0c0c0;
-  --bg-color-1: #222222;
-  --bg-color-2: #161616;
+  --color-1: #eee;
+  --color-2: #ccc;
+  --bg-color-1: #222;
+  --bg-color-2: #111;
 }
+
 html {
   height: 100%;
 }
 body {
-  color: #d6d6d6;
-  background-color: #222222;
   height: 100%;
+  color: #eee;
+  background-color: #222;
+  color: var(--color-1);
+  background-color: var(bg-color-1);
 }
 
 .ui-button {
@@ -33,12 +38,12 @@ body {
   line-height: 36px;
   border-radius: 6px;
   display: inline-block;
-  border: 1px solid var(--color-1);
-  color: var(--color-1);
+  border: 1px solid var(--accent-color-1);
+  color: var(--accent-color-1);
   background-color: var(--bg-color-1);
   &:hover {
     cursor: pointer;
     color: var(--bg-color-1);
-    background-color: var(--color-1);
+    background-color: var(--accent-color-1);
   }
 }

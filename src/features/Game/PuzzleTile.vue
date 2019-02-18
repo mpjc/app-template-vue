@@ -4,7 +4,6 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
-
 import { GameTile } from '@/store/game';
 
 @Component

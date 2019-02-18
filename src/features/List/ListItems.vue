@@ -2,7 +2,9 @@
   <div class="ListItems">
     <div v-if="items.length">
       <ListItemView
-        v-for="item in items"
+        v-for="(item, index) in items"
+        class="ListItems-item"
+        :class="{'last': index === (items.length - 1)}"
         :item="item"
         :key="item.id"
         @toggle="toggleListItem"
@@ -14,7 +16,7 @@
 
     <Modal v-if="editItem" @close="clearEditItem">
       <div slot="header">
-        <div>Edit item</div>
+        <div class="ListItems-edit-header">Edit item</div>
         <hr>
       </div>
       <ListItemEdit
@@ -31,10 +33,10 @@
 import { Component, Vue, Prop, Emit } from 'vue-property-decorator';
 import { mapGetters, mapActions } from 'vuex';
 
+import { Modal } from '@/shared';
+import { ListItem } from '@/store/list';
 import ListItemEdit from './ListItemEdit.vue';
 import ListItemView from './ListItemView.vue';
-import { ListItem } from '@/store/list';
-import { Modal } from '@/shared';
 
 @Component({
   components: { ListItemEdit, ListItemView, Modal },
@@ -75,5 +77,14 @@ export default class ListItems extends Vue {
 
 <style scoped lang="scss">
 .ListItems {
+  &-edit-header {
+    color: var(--accent-color-1);
+  }
+  &-item {
+    // border-bottom: 1px solid var(--color-1);
+    &.last {
+      border-bottom: none;
+    }
+  }
 }
 </style>

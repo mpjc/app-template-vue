@@ -26,7 +26,7 @@ export default class Home extends Vue { }
     font-size: 0.9em;
   }
   a {
-    color: var(--color-1);
+    color: var(--accent-color-1);
   }
 }
 </style>

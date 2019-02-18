@@ -5,7 +5,7 @@
       <PuzzleSetup/>
     </div>
     <div v-else>
-      <p>Tap a tile to move it.</p>
+      <p>Tap a tile to move it</p>
       <PuzzleBoard/>
       <Modal v-if="phase === 'Won'" :showClose="false">
         <div slot="header"></div>
@@ -26,10 +26,10 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { mapGetters, mapActions } from 'vuex';
 
+import { Modal } from '@/shared';
+import { GameTile, GamePhase } from '@/store/game';
 import PuzzleBoard from './PuzzleBoard.vue';
 import PuzzleSetup from './PuzzleSetup.vue';
-import { GameTile, GamePhase } from '@/store/game';
-import { Modal } from '@/shared';
 
 @Component({
   components: { Modal, PuzzleBoard, PuzzleSetup },
@@ -37,6 +37,7 @@ import { Modal } from '@/shared';
   methods: mapActions('game', ['shuffle', 'quit']),
 })
 export default class Game extends Vue {
+  // State
   phase!: GamePhase;
   quit!: () => void;
   shuffle!: () => void;
@@ -45,6 +46,8 @@ export default class Game extends Vue {
 
 <style scoped lang="scss">
 .Game {
+  margin: 0 auto;
+  max-width: 800px;
   &-win-text {
     font-size: 1.8em;
   }

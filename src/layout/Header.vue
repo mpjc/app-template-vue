@@ -3,13 +3,16 @@
     <div id="nav">
       <router-link to="/">
         <i class="fas fa-home"></i>
-      </router-link>&nbsp;|
+      </router-link>
+      <span>|</span>
       <router-link to="/list">
         <i class="fas fa-tasks"></i>
-      </router-link>&nbsp;|
+      </router-link>
+      <span>|</span>
       <router-link to="/game">
         <i class="fas fa-gamepad"></i>
-      </router-link>&nbsp;|
+      </router-link>
+      <span>|</span>
       <router-link to="/settings">
         <i class="fas fa-cog"></i>
       </router-link>
@@ -32,11 +35,11 @@ export default class Header extends Vue { }
     padding: 15px;
     a {
       font-size: 1.5em;
-      padding: 0 6px;
+      padding: 0 12px;
       font-weight: bold;
       color: var(--color-1);
       &.router-link-exact-active {
-        color: $color-blue;
+        color: var(--accent-color-1);
       }
     }
   }

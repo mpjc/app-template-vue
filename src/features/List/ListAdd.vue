@@ -27,22 +27,20 @@ export default class ListAdd extends Vue {
 @import "../../colors.scss";
 .ListAdd {
   padding: 8px;
+  height: 32px;
+  line-height: 32px;
+  font-size: 1.2em;
   &-text {
     width: 75%;
-    font-size: 1.2em;
     border-radius: 4px;
-    padding-left: 2px;
+    padding-left: 8px;
   }
   &-add {
     display: inline-block;
     color: var(--color-1);
-    border-color: $color-green;
-    background-color: $color-green;
-    font-size: 1.2em;
+    background-color: var(--accent-color-1);
     margin: 0 8px;
     width: 36px;
-    height: 32px;
-    line-height: 32px;
     border-radius: 6px;
     &:hover {
       cursor: pointer;

@@ -18,7 +18,6 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-
 import { mapGetters, mapActions } from 'vuex';
 
 @Component({
@@ -34,7 +33,7 @@ export default class Settings extends Vue {
 <style scoped lang="scss">
 .Settings {
   margin: 0 auto;
-  width: 90%;
+  max-width: 800px;
   &-list {
   }
   &-group {

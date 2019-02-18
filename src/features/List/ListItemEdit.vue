@@ -2,8 +2,8 @@
   <div class="ListItemEdit">
     <input class="ListItemEdit-text" v-model="inputValue">
     <div class="ListItemEdit-controls">
-      <div class="ListItemEdit-control" @click="update">Update</div>
-      <div class="ListItemEdit-control" @click="cancel">Cancel</div>
+      <div class="ListItemEdit-control ui-button" @click="update">Update</div>
+      <div class="ListItemEdit-control ui-button" @click="cancel">Cancel</div>
     </div>
   </div>
 </template>
@@ -43,16 +43,8 @@ export default class ListItemEdit extends Vue {
     height: 20px;
     line-height: 20px;
     padding: 10px 20px;
-    color: var(--color-1);
-    background-color: var(--bg-color-1);
-    border: 1px solid var(--color-1);
     border-radius: 4px;
     min-width: 20%;
-    &:hover {
-      cursor: pointer;
-      color: var(--bg-color-1);
-      background-color: var(--color-1);
-    }
   }
 }
 </style>

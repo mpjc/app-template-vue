@@ -5,7 +5,7 @@
 
     <div v-if="items.length">
       <ListItems :items="uncheckedItems">
-        <div>All items complete!</div>
+        <div>All complete!</div>
       </ListItems>
       <hr v-if="checkedItems.length" class="List-separator">
       <ListItems :items="checkedItems"/>
@@ -19,10 +19,10 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { mapGetters, mapActions } from 'vuex';
 
+import { Modal } from '@/shared';
 import { ListItem } from '@/store/list';
 import ListAdd from './ListAdd.vue';
 import ListItems from './ListItems.vue';
-import { Modal } from '@/shared';
 
 @Component({
   components: { ListAdd, ListItems, Modal },
@@ -57,6 +57,8 @@ export default class List extends Vue {
 
 <style scoped lang="scss">
 .List {
+  margin: 0 auto;
+  max-width: 800px;
   &-separator {
     margin: 16px 0;
   }

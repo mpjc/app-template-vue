@@ -34,19 +34,20 @@ export default class ListItemView extends Vue {
 <style scoped lang="scss">
 @import "../../colors.scss";
 .ListItemView {
-  border-radius: 4px;
   color: var(--color-1);
-  background-color: var(--bg-color-2);
-  border: 1px solid var(--color-2);
+  width: 100%;
+  min-height: 36px;
+  line-height: 36px;
   padding: 2px;
   margin: 2px;
   display: flex;
   justify-content: space-between;
   list-style: none;
-  text-align: left;
-  min-height: 36px;
-  line-height: 36px;
+  &-last {
+    border-bottom: none;
+  }
   &-text {
+    text-align: left;
     padding: 0 8px;
     overflow-wrap: normal;
     flex: 1 1 auto;
@@ -69,7 +70,7 @@ export default class ListItemView extends Vue {
     border-radius: 6px;
     cursor: pointer;
     :hover {
-      color: var(--color-2);
+      color: var(--accent-color-1);
     }
     i {
       line-height: 36px;

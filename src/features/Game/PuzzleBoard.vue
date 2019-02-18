@@ -17,8 +17,8 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { mapGetters, mapActions } from 'vuex';
 
-import PuzzleTile from './PuzzleTile.vue';
 import { GameTile } from '@/store/game';
+import PuzzleTile from './PuzzleTile.vue';
 
 @Component({
   components: { PuzzleTile },
@@ -26,6 +26,7 @@ import { GameTile } from '@/store/game';
   methods: mapActions('game', ['moveTile']),
 })
 export default class Game extends Vue {
+  // State
   board!: GameTile[][];
   boardSize!: number;
   moveTile!: (coords: { x: number, y: number }) => void;
