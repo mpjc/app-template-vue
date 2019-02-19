@@ -10,11 +10,11 @@
   --color-1: #222;
   --color-2: #111;
   --bg-color-1: #eee;
-  --bg-color-2: #ccc;
+  --bg-color-2: #ddd;
 }
 .dark {
   --color-1: #eee;
-  --color-2: #ccc;
+  --color-2: #ddd;
   --bg-color-1: #222;
   --bg-color-2: #111;
 }
@@ -38,6 +38,7 @@ body {
   line-height: 36px;
   border-radius: 6px;
   display: inline-block;
+  user-select: none;
   border: 1px solid var(--accent-color-1);
   color: var(--accent-color-1);
   background-color: var(--bg-color-1);

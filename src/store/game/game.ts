@@ -4,7 +4,7 @@ import RootState from '../app-state';
 import { getters } from './getters';
 import { actions } from './actions';
 import { mutations } from './mutations';
-import { createBoard, SlidingPuzzleTile } from '@/lib/sliding-puzzle.utils';
+import { createBoard, SlidingPuzzleTile } from '@/utils/sliding-puzzle.utils';
 
 export const enum GamePhase {
   Setup = 'Setup',

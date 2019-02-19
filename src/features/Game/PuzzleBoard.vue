@@ -43,7 +43,7 @@ export default class Game extends Vue {
   max-width: 460px;
   margin: 0 auto 20px auto;
   border-radius: 6px;
-  background-color: var(--color-1);
+  background-color: var(--color-2);
   &-row {
     display: flex;
     flex: 1;

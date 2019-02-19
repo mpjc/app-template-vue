@@ -32,17 +32,18 @@ export default class ListItemEdit extends Vue {
     width: 90%;
     font-size: 1.2em;
     border-radius: 4px;
-    padding-left: 2px;
+    padding-left: 4px;
+    margin: 8px 0 24px 0;
   }
   &-controls {
     display: flex;
     justify-content: space-evenly;
-    margin-top: 16px;
   }
   &-control {
-    height: 20px;
-    line-height: 20px;
-    padding: 10px 20px;
+    font-size: 1.1em;
+    height: 18px;
+    line-height: 18px;
+    padding: 8px 16px;
     border-radius: 4px;
     min-width: 20%;
   }

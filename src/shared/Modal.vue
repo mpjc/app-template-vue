@@ -1,6 +1,6 @@
 <template>
   <transition name="Modal">
-    <div class="Modal-background">
+    <div class="Modal-background" @click.self="tryClose">
       <div class="Modal-wrapper">
         <div class="Modal-container">
           <div v-if="showClose" class="Modal-close" @click="close">
@@ -24,7 +24,14 @@ import { Component, Vue, Emit, Prop } from 'vue-property-decorator';
 @Component
 export default class Modal extends Vue {
   @Prop() showClose!: boolean;
+  @Prop() closeOnBgClick!: boolean;
   @Emit() close() { return; }
+
+  tryClose() {
+    if (this.closeOnBgClick) {
+      this.close();
+    }
+  }
 }
 </script>
 
@@ -50,6 +57,7 @@ export default class Modal extends Vue {
   &-container {
     position: relative;
     margin: 0 auto;
+    max-width: 800px;
     padding: 20px 20px;
     background-color: var(--bg-color-1);
     border: 1px solid var(--color-1);

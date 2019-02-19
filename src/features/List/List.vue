@@ -3,7 +3,7 @@
     <h3>List</h3>
     <ListAdd @add="addItem"/>
 
-    <div v-if="items.length">
+    <div class="List-items" v-if="items.length">
       <ListItems :items="uncheckedItems">
         <div>All complete!</div>
       </ListItems>
@@ -44,14 +44,6 @@ export default class List extends Vue {
       this.add(value);
     }
   }
-
-  showModal() {
-    this.modalVisible = true;
-  }
-
-  hideModal() {
-    this.modalVisible = false;
-  }
 }
 </script>
 
@@ -68,8 +60,8 @@ export default class List extends Vue {
   &-empty {
     padding-top: 8px;
   }
-}
-.ListItems {
-  margin-top: 12px;
+  &-items {
+    margin-top: 12px;
+  }
 }
 </style>

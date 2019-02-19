@@ -1,7 +1,7 @@
 import { MutationTree } from 'vuex';
 
 import { GameState, GamePhase } from './game';
-import { createBoard, tryMove, isCorrectOrder } from '@/lib/sliding-puzzle.utils';
+import { createBoard, tryMove, isCorrectOrder } from '@/utils/sliding-puzzle.utils';
 
 export const mutations: MutationTree<GameState> = {
   moveTile(state, p: { x: number, y: number }) {

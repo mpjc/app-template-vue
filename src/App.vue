@@ -12,9 +12,9 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import { mapGetters } from 'vuex';
 import { Footer, Header, Main } from '@/layout';
 import { SettingsState } from '@/store/settings';
-import { mapGetters } from 'vuex';
 
 @Component({
   components: {

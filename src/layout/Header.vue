@@ -41,6 +41,9 @@ export default class Header extends Vue { }
       &.router-link-exact-active {
         color: var(--accent-color-1);
       }
+      &:hover {
+        color: var(--accent-color-1);
+      }
     }
   }
 }

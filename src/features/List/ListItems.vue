@@ -2,9 +2,7 @@
   <div class="ListItems">
     <div v-if="items.length">
       <ListItemView
-        v-for="(item, index) in items"
-        class="ListItems-item"
-        :class="{'last': index === (items.length - 1)}"
+        v-for="item in items"
         :item="item"
         :key="item.id"
         @toggle="toggleListItem"
@@ -14,10 +12,9 @@
     </div>
     <slot v-else></slot>
 
-    <Modal v-if="editItem" @close="clearEditItem">
+    <Modal v-if="editItem" @close="clearEditItem" :closeOnBgClick="true">
       <div slot="header">
         <div class="ListItems-edit-header">Edit item</div>
-        <hr>
       </div>
       <ListItemEdit
         slot="content"
@@ -78,13 +75,9 @@ export default class ListItems extends Vue {
 <style scoped lang="scss">
 .ListItems {
   &-edit-header {
-    color: var(--accent-color-1);
-  }
-  &-item {
-    // border-bottom: 1px solid var(--color-1);
-    &.last {
-      border-bottom: none;
-    }
+    font-size: 1.1em;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--color-1);
   }
 }
 </style>
