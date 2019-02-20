@@ -32,7 +32,6 @@ export default class ListItemView extends Vue {
 </script>
 
 <style scoped lang="scss">
-@import "../../colors.scss";
 .ListItemView {
   color: var(--color-1);
   width: 100%;

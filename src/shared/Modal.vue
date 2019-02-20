@@ -36,7 +36,6 @@ export default class Modal extends Vue {
 </script>
 
 <style scoped lang="scss">
-@import "../colors.scss";
 .Modal {
   &-background {
     position: fixed;
@@ -78,9 +77,6 @@ export default class Modal extends Vue {
     text-align: left;
     margin-bottom: 16px;
   }
-  &-content {
-  }
-
   // Transition
   &-enter {
     opacity: 0;

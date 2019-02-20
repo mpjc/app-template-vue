@@ -30,7 +30,7 @@ export default class App extends Vue {
 </script>
 
 <style lang="scss">
-@import "./common.scss";
+@import "./assets/common.scss";
 #app {
   font-size: 1.2em;
   font-family: "Avenir", Helvetica, Arial, sans-serif;

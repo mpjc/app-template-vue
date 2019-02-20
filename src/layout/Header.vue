@@ -28,7 +28,6 @@ export default class Header extends Vue { }
 </script>
 
 <style scoped lang="scss">
-@import "../colors.scss";
 .Header {
   background-color: var(--bg-color-2);
   #nav {

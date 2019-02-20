@@ -29,7 +29,6 @@ export default class Home extends Vue { }
 </script>
 
 <style scoped lang="scss">
-@import "../colors.scss";
 .Home {
   margin: 0 auto;
   max-width: 800px;

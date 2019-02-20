@@ -24,7 +24,6 @@ export default class ListAdd extends Vue {
 </script>
 
 <style scoped lang="scss">
-@import "../../colors.scss";
 .ListAdd {
   padding: 8px;
   height: 32px;
